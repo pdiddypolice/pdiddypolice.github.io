@@ -43,7 +43,7 @@ margin-top: 40px;
 .caller-info img {
 width: 200px;
 height: 200px;
-border-radius: 50%;
+border-radius: 50%; /* هذه الخاصية تجعل الصورة دائرية */
 object-fit: cover;
 border: 5px solid #ff0;
 box-shadow: 0 0 25px rgba(255, 255, 0, 0.7);
@@ -88,13 +88,14 @@ box-shadow: 0 0 25px #4CAF50;
 <div class="phone">
 <div class="screen">
 <div class="caller-info">
-<img src="p_diddy_police.png" alt="P. Diddy Police">
+<!-- الصورة الدائرية -->
+<img src="p diddy police.png" alt="P. Diddy Police">
 <h1 style="font-size: 32px; margin-top: 25px; color: #ff0;">P. Diddy Police</h1>
 <p style="font-size: 24px; color: #0f0; letter-spacing: 2px;">+1 555-334-9579</p>
 </div>
 
 <div class="call-status" id="callStatus">
-اضغط للاتصال بـ P. Diddy Police
+اضغط للاتصال P. Diddy Police
 </div>
 
 <button class="call-button" id="callButton" onclick="startCall()">
@@ -103,7 +104,7 @@ box-shadow: 0 0 25px #4CAF50;
 </div>
 </div>
 
-<audio id="callSound" src="pdiddycall.mp3" preload="auto"></audio>
+<audio id="callSound" src="pdiddycall-VEED (1).mp3" preload="auto"></audio>
 
 <script>
 const callButton = document.getElementById('callButton');
@@ -114,7 +115,7 @@ function startCall() {
 callButton.disabled = true;
 callButton.style.backgroundColor = "#f44336";
 callButton.innerHTML = "✋ جاري الاتصال...";
-callStatus.textContent = "جارٍ الاتصال بـ P. Diddy Police...";
+callStatus.textContent = "جارٍ الاتصال P. Diddy Police...";
 
 setTimeout(() => {
 callStatus.textContent = "🔔 جارٍ الرنين...";
