@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P. Diddy Police - اتصل الآن!</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #000;
+color: white;
+margin: 0;
+padding: 0;
+height: 100vh;
+display: flex;
+flex-direction: column;
+}
+
+.phone {
+background-color: #222;
+border: none;
+width: 100%;
+height: 100vh;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+}
+
+.screen {
+background-color: #111;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 20px;
+}
+
+.caller-info {
+text-align: center;
+margin-top: 40px;
+}
+
+.caller-info img {
+width: 200px;
+height: 200px;
+border-radius: 50%;
+object-fit: cover;
+border: 5px solid #ff0;
+box-shadow: 0 0 25px rgba(255, 255, 0, 0.7);
+transform: scale(1);
+transition: transform 0.3s;
+}
+
+.caller-info img:hover {
+transform: scale(1.05);
+}
+
+.call-status {
+font-size: 28px;
+margin: 40px 0;
+min-height: 40px;
+color: #fff;
+text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.call-button {
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 50%;
+width: 120px;
+height: 120px;
+font-size: 24px;
+margin: 0 auto 50px;
+display: block;
+cursor: pointer;
+transition: all 0.3s;
+box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+}
+
+.call-button:hover {
+transform: scale(1.1);
+box-shadow: 0 0 25px #4CAF50;
+}
+</style>
+</head>
+<body>
+<div class="phone">
+<div class="screen">
+<div class="caller-info">
+<img src="p_diddy_police.png" alt="P. Diddy Police">
+<h1 style="font-size: 32px; margin-top: 25px; color: #ff0;">P. Diddy Police</h1>
+<p style="font-size: 24px; color: #0f0; letter-spacing: 2px;">+1 555-334-9579</p>
+</div>
+
+<div class="call-status" id="callStatus">
+اضغط للاتصال بـ P. Diddy Police
+</div>
+
+<button class="call-button" id="callButton" onclick="startCall()">
+☎️ اتصل
+</button>
+</div>
+</div>
+
+<audio id="callSound" src="pdiddycall.mp3" preload="auto"></audio>
+
+<script>
+const callButton = document.getElementById('callButton');
+const callStatus = document.getElementById('callStatus');
+const callSound = document.getElementById('callSound');
+
+function startCall() {
+callButton.disabled = true;
+callButton.style.backgroundColor = "#f44336";
+callButton.innerHTML = "✋ جاري الاتصال...";
+callStatus.textContent = "جارٍ الاتصال بـ P. Diddy Police...";
+
+setTimeout(() => {
+callStatus.textContent = "🔔 جارٍ الرنين...";
+
+setTimeout(() => {
+callStatus.textContent = "🚔 تم الرد! مع P. Diddy Police";
+callSound.play();
+
+callButton.innerHTML = "❌ أغلق المكالمة";
+callButton.style.backgroundColor = "#ff5722";
+callButton.onclick = endCall;
+callButton.disabled = false;
+}, 3000);
+}, 2000);
+}
+
+function endCall() {
+callSound.pause();
+callSound.currentTime = 0;
+callStatus.textContent = "✅ تم إنهاء المكالمة مع P. Diddy Police";
+callButton.innerHTML = "☎️ اتصل مجددًا";
+callButton.style.backgroundColor = "#4CAF50";
+callButton.onclick = startCall;
+}
+</script>
+</body>
+</html>
